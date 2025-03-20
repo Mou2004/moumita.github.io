@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  scroll-behavior: smooth>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +13,15 @@
     crossorigin="anonymous"
   />
   <link
-    href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
-    rel="stylesheet"
-  />
-  <link
     href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
     rel="stylesheet"
   />
 </head>
-<body>
+<body class="dark-mode">
+
+  <!-- Dark Mode Toggle -->
+  <button id="dark-mode-toggle">☀️  Light Mode</button>
+
   <!-- START NAV -->
   <nav id="navbar" class="nav">
     <ul class="nav-list">
@@ -34,8 +34,8 @@
 
   <!-- START WELCOME SECTION -->
   <section id="welcome-section" class="welcome-section">
-    <h1>Hey I am Moumita</h1>
-    <p>a computer science student</p>
+    <h1 id="typewriter"></h1>
+    <p id="typewriter-subtext"></p>
   </section>
   <!-- END WELCOME SECTION -->
 
@@ -51,7 +51,7 @@
         </p>
       </a>
       <a href="https://github.com/Mou2004/COVID-19_trend_analysis" target="_blank" class="project project-tile">
-        <img class="project-image" src="https://raw.githubusercontent.com/Mou2004/COVID-19_trend_analysis/main/images/first.png" alt="project" />
+        <img class="project-image" src="https://raw.githubusercontent.com/Mou2004/COVID-19_trend_analysis/main/images/first.PNG" alt="COVID-19_trend_analysis and Visualization" />
         <p class="project-title">
           <span class="code">&lt;</span> Covid 19 Trend Analysis and Visualization <span class="code">&#47;&gt;</span>
         </p>
@@ -62,18 +62,7 @@
           <span class="code">&lt;</span> Chess GUI <span class="code">&#47;&gt;</span>
         </p>
       </a>
-      <a href="https://github.com/Mou2004/Basic_Java_Projects/tree/main/TemperatureConverter" target="_blank" class="project project-tile">
-        <img class="project-image" src="https://raw.githubusercontent.com/Mou2004/Basic_Java_Projects/main/TemperatureConverter/TemperatureConverter.PNG" alt="Temperature Converter" />
-        <p class="project-title">
-          <span class="code">&lt;</span> Temperature converter <span class="code">&#47;&gt;</span>
-        </p>
-      </a>
-      <!--<a href="https://github.com/Mou2004/Basic_Java_Projects/tree/main/Tic_Tac_Toe" target="_blank" class="project project-tile">
-        <img class="project-image" src="https://raw.githubusercontent.com/Mou2004/Basic_Java_Projects/main/Tic_Tac_Toe/TicTacToe.PNG" alt="TicTacToe" />
-        <p class="project-title">
-          <span class="code">&lt;</span> Tic Tac Toe Game <span class="code">&#47;&gt;</span>
-        </p>-->
-      </a>
+      
     </div>
 
     <a href="https://github.com/Mou2004" class="btn btn-show-all" target="_blank">Show all<i class="fas fa-chevron-right"></i></a>
@@ -84,18 +73,13 @@
   <section id="contact" class="contact-section">
     <div class="contact-section-header">
       <h2>Let's work together...</h2>
-      <p>Do you like Harry Potter?</p>
+      <!--<p>What are you working on?</p>-->
     </div>
     <div class="contact-links">
-      <!--<a href="https://facebook.com" target="_blank" class="btn contact-details"><i class="fab fa-facebook-square"></i> Facebook</a>-->
-      <!--<a href="https://twitter.com" target="_blank" class="btn contact-details"><i class="fab fa-twitter"></i> Twitter</a>
-      <a href="mailto:someone@example.com" class="btn contact-details"><i class="fas fa-at"></i> Send a mail</a>
-      <a href="tel:555-555-5555" class="btn contact-details"><i class="fas fa-phone-alt"></i> Call me</a>-->
-      
       <a id="profile-link" href="https://github.com/Mou2004" target="_blank" class="btn contact-details"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/moumita-kotoky-9034b72a4/" class="contact-details" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
     </div>
   </section>
   <!-- END CONTACT SECTION -->
@@ -103,9 +87,51 @@
   <!-- START FOOTER -->
   <footer>
     <p>Portfolio in making....</p>
-    <!-- <p>&copy; 2025 Moumita | All rights reserved </p>-->
     <i class="fas fa-heart"></i>
   </footer>
   <!-- END FOOTER -->
+
+  <!-- JavaScript for Dark Mode -->
+  <script>
+    const toggleButton = document.getElementById("dark-mode-toggle");
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        toggleButton.textContent = "☀️ Light Mode";
+      } else {
+        toggleButton.textContent = "🌙 Dark Mode";
+      }
+    });
+  </script>
+<!-- JavaScript for Typewriter Effect -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const text = "Hey, I am Moumita";
+    const subtext = "a computer science student";
+    let i = 0, j = 0;
+    
+    function typeWriterMain() {
+        if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriterMain, 100);
+        } else {
+            setTimeout(typeWriterSub, 500); // Delay before subtext starts
+        }
+    }
+
+    function typeWriterSub() {
+        if (j < subtext.length) {
+            document.getElementById("typewriter-subtext").innerHTML += subtext.charAt(j);
+            j++;
+            setTimeout(typeWriterSub, 100);
+        }
+    }
+
+    typeWriterMain(); // Start typing
+});
+</script>
+
+
 </body>
 </html>
