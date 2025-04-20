@@ -190,6 +190,9 @@ body {
   object-fit: scale-down;
   margin: 0 auto;
   display: block;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .project-image {
